@@ -1,5 +1,5 @@
 # Build stage
-FROM openjdk:21-jdk-slim AS build
+FROM eclipse-temurin:21-jdk-jammy AS build
 WORKDIR /app
 
 # Copy the Maven wrapper and pom.xml to leverage Docker layer caching
@@ -18,12 +18,13 @@ COPY src ./src
 RUN ./mvnw clean package -DskipTests
 
 # Run stage
-FROM openjdk:21-jdk-slim
+FROM eclipse-temurin:21-jdk-jammy
 WORKDIR /app
+
 COPY --from=build /app/target/*.jar app.jar
 
 # Expose the port the app runs on
 EXPOSE 8080
 
 # Run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
