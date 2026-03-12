@@ -5,7 +5,7 @@ import { AuthProvider } from './context/AuthContext';
 import { ProtectedRoute, PublicRoute } from './components/ProtectedRoute';
 import { Navbar } from './components/Navbar';
 
-// Auth Pages
+// Auth Pages..
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
 
