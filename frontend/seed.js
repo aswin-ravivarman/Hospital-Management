@@ -58,3 +58,4 @@ async function seed() {
     }
 }
 seed();
+// To run this script, use: node seed.js
